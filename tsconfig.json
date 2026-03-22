@@ -37,6 +37,6 @@
     "**/*.cjs",
     "**/*.js",
     ".next/types/**/*.ts"
-  ],
+, "tailwind.config.ts", "src/app/dashboard/cron/[productid]/inbox"  ],
   "exclude": ["node_modules", "generated"]
 }

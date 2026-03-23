@@ -3,11 +3,15 @@
 import React from 'react'
 import { Loader2, GitFork, CheckCircle2, AlertCircle, Terminal } from 'lucide-react'
 import { backendUrl } from '~/lib/api'
-import { redirect } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
-
+type CreateRepoResponse = {
+  success: boolean
+  message?: string
+  productId?: string
+  error?: string
+}
 const CreateRepo = () => {
   const [repoName, setRepoName] = React.useState("")
   const [repoDescription, setRepoDescription] = React.useState("")
@@ -41,7 +45,7 @@ const CreateRepo = () => {
         body: JSON.stringify({ name: repoName, description: repoDescription  }),
       })
 
-      const data = await res.json()
+      const data = await res.json() as CreateRepoResponse
 
       if (res.ok && data.success) {
         pushLog("Repository created successfully ✓")
@@ -61,12 +65,13 @@ const CreateRepo = () => {
       } else {
         pushLog(`Error: ${data.error ?? "Something went wrong"}`)
         setStatus('error')
-        setMessage(data.error)
+        setMessage(data.error ?? "Something went wrong")
       }
     } catch (err) {
       pushLog("Network error — could not reach server")
       setStatus('error')
       setMessage("Network error")
+      console.error(err)
 
     } finally {
       setLoading(false)
@@ -288,7 +293,7 @@ const CreateRepo = () => {
             {/* description */}
             <div className="cr-field">
               <div className="cr-field-label">
-                <span>//</span> description
+                <span className="text-[#00ff87]">{`//`}</span> description
                 <span style={{ color: '#2e2e4e', fontSize: 9, marginLeft: 4 }}>optional</span>
               </div>
               <input

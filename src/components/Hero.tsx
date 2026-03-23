@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Link from "next/link";
+
 
 const LEVELS = [
   0,0,0,1,1,2,2,3,4,4,3,2,1,0,1,2,3,4,4,3,4,4,3,2,3,4,4,4,3,2,
@@ -12,7 +12,7 @@ function CommitGrid() {
   return (
     <div className="w-full max-w-2xl mt-14 animate-fade-up animation-delay-400">
       <p className="font-mono text-xs text-muted mb-2 tracking-widest">
-        // your github contribution graph — after commitpilot
+        <span className="text-[#00ff87]">{`//`}</span> your github contribution graph — after commitpilot
       </p>
       <div className="flex gap-[3px]">
         {Array.from({ length: 52 }).map((_, w) => (

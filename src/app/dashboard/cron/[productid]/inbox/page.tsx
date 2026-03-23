@@ -29,7 +29,7 @@ async function SectionCard({
   return (
     <div className={`bg-[#0d1117] border border-[#1e2d3d] rounded-xl p-5 ${className}`}>
       <p className="font-mono text-[11px] tracking-widest uppercase text-[#7a8a99] mb-4">
-        // {title}
+        <span className="text-[#00ff87]">{`//`}</span> {title}
       </p>
       {children}
     </div>
@@ -41,9 +41,7 @@ async function DashboardPage({params}: {params: Promise<{ productid: string }>})
 
   console.log(`productid:${productid}`);
 
-  const { data, username, nextCronMinutes , avatarUrl } = await getDashboardData(productid).catch(() => {
-    redirect("/login");
-  }) as Awaited<ReturnType<typeof getDashboardData>>;
+  const { data, username, nextCronMinutes , avatarUrl } = await getDashboardData(productid)
 
   const initials = (username ?? "?")
     .split(" ")
@@ -84,7 +82,7 @@ async function DashboardPage({params}: {params: Promise<{ productid: string }>})
           </div>
           <div className="flex items-center gap-2 bg-[#0d1117] border border-[#1e2d3d] rounded-lg px-3 py-1.5">
             <div className="w-6 h-6 rounded-full bg-[#00ff87] flex items-center justify-center font-mono text-[10px] font-bold text-[#080c10]">
-              <Image className="rounded-full" src={avatarUrl || initials} alt="GitHub" width={100} height={100} />
+              <Image className="rounded-full" src={avatarUrl ?? initials} alt="GitHub" width={100} height={100} />
             </div>
             <span className="font-mono text-xs text-[#7a8a99]">@{username ?? "you"}</span>
           </div>
@@ -160,7 +158,7 @@ async function DashboardPage({params}: {params: Promise<{ productid: string }>})
                 {/* Today's progress */}
                 <div className="mb-5">
                   <div className="flex justify-between mb-1.5">
-                    <span className="text-xs text-[#7a8a99]">today's commits</span>
+                    <span className="text-xs text-[#7a8a99]">today&apos;s commits</span>
                     <span className="font-mono text-xs text-[#e6edf3]">
                       {data.commitsToday} / {data.commitsPerDay}
                     </span>

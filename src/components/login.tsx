@@ -107,7 +107,7 @@ export default function LoginPage() {
           </CardFooter>
         </Card>
 
-        <p className="bottom-note">// secured with oauth 2.0 · end-to-end encrypted</p>
+        <p className="bottom-note"><span className="text-[#00ff87]">{`//`}</span> secured with oauth 2.0 · end-to-end encrypted</p>
       </div>
 
       <style jsx global>{`

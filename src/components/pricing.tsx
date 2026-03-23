@@ -62,7 +62,7 @@ const plans: Plan[] = [
 export function Pricing() {
   return (
     <section id="pricing" className="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
-      <p className="font-mono text-xs tracking-widest uppercase text-green mb-3">// pricing</p>
+      <p className="font-mono text-xs tracking-widest uppercase text-green mb-3"><span className="text-[#00ff87]">{`//`}</span> pricing</p>
       <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter">Simple, honest pricing.</h2>
       <p className="mt-3 text-muted mx-auto max-w-sm">No hidden fees. Upgrade or cancel anytime.</p>
 

@@ -8,7 +8,7 @@ export function Terminal() {
   return (
     <section className="relative z-10 max-w-5xl mx-auto px-6 py-24 flex flex-col md:flex-row gap-12 items-center">
       <div className="flex-1">
-        <p className="font-mono text-xs tracking-widest uppercase text-green mb-3">// under the hood</p>
+        <p className="font-mono text-xs tracking-widest uppercase text-green mb-3"><span className="text-[#00ff87]">{`//`}</span> under the hood</p>
         <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter leading-tight">
           Real commits.<br />Real history.
         </h2>
@@ -71,7 +71,7 @@ export function FAQ() {
 
   return (
     <section id="faq" className="relative z-10 max-w-2xl mx-auto px-6 py-24 text-center">
-      <p className="font-mono text-xs tracking-widest uppercase text-green mb-3">// faq</p>
+      <p className="font-mono text-xs tracking-widest uppercase text-green mb-3"><span className="text-[#00ff87]">{`//`}</span> faq</p>
       <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter mb-10">Common questions.</h2>
 
       <div className="flex flex-col gap-3 text-left">

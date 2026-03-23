@@ -273,7 +273,7 @@ const Timemaker = ({productId}: {productId: string}) => {
           </span>
           {isReady && (
             <span style={{ color: '#2a4a2a', fontSize: 10 }}>
-              ~{(commitsPerDay! * (schedule === 'everyday' ? 365 : 104)).toLocaleString()} / yr
+              ~{`${(commitsPerDay * (schedule === 'everyday' ? 365 : 104)).toLocaleString()}`} / yr
             </span>
           )}
         </div>

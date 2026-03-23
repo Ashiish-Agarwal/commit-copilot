@@ -1,1 +1,1 @@
-export const backendUrl = 'http://localhost:3001'
+export const backendUrl = 'https://exceptional-adrian-spideycourses-ac5c4a07.koyeb.app'

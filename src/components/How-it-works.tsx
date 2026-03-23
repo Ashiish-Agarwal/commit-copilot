@@ -22,7 +22,7 @@ const steps = [
 export default function HowItWorks() {
   return (
     <section id="how" className="relative z-10 max-w-5xl mx-auto px-6 py-24">
-      <p className="font-mono text-xs tracking-widest uppercase text-green mb-3">// how it works</p>
+      <p className="font-mono text-xs tracking-widest uppercase text-green mb-3"><span className="text-[#00ff87]">{`//`}</span> how it works</p>
       <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter leading-tight">
         Three steps.<br />Zero manual effort.
       </h2>

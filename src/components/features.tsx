@@ -10,7 +10,7 @@ const features = [
 export default function Features() {
   return (
     <section id="features" className="relative z-10 max-w-5xl mx-auto px-6 py-24">
-      <p className="font-mono text-xs tracking-widest uppercase text-green mb-3">// features</p>
+      <p className="font-mono text-xs tracking-widest uppercase text-green mb-3"><span className="text-[#00ff87]">{`//`}</span> features</p>
       <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter leading-tight">
         Everything you need.<br />Nothing you don&apos;t.
       </h2>

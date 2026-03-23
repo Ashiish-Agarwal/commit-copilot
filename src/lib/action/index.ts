@@ -77,7 +77,6 @@ export async function stop_automatic_commits(){
     throw new Error("User not authenticated");
   }
 
-  const userId = session.user.id;
 
 
     

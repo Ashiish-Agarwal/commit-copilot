@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation'
 import getSessioncheck from '~/lib/action'
 import { cookies } from 'next/headers'
 import CreateRepo from '~/components/create-repo'
+import { backendUrl } from '~/lib/api'
 
 const page = async () => {
      const session = await getSessioncheck()
@@ -12,7 +13,7 @@ const page = async () => {
   }
   try {
     const cookieStore = cookies()
-    await fetch('http://localhost:3001/me', {
+    await fetch(`${backendUrl}`, {
        credentials: 'include',
    headers:{
     cookie: (await cookieStore).toString()

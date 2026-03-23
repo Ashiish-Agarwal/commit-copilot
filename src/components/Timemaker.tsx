@@ -28,9 +28,9 @@ const Timemaker = ({productId}: {productId: string}) => {
         schedule,
         productId,
       },
-      // {
-      //   withCredentials: true,
-      // }
+      {
+        withCredentials: true,
+      }
     )
       
       

@@ -1,1 +1,3 @@
-export const backendUrl = 'https://exceptional-adrian-spideycourses-ac5c4a07.koyeb.app'
+
+
+export const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL

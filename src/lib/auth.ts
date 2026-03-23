@@ -2,6 +2,7 @@ import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "~/server/db";
 import { user, session, account, verification, userTier } from "../../auth-schema";
+import { backendUrl } from "./api";
 
 
 export const auth = betterAuth({
@@ -23,7 +24,10 @@ export const auth = betterAuth({
   }, 
    secret: process.env.BETTER_AUTH_SECRET!, // same secret in BOTH .env files ⚠️
   baseURL: process.env.BETTER_AUTH_URL!,   // Next.js URL e.g. http://localhost:3000
-  trustedOrigins: ["http://localhost:3001"], // allow Elysia origin
+  trustedOrigins: ["http://localhost:3001", backendUrl],
+  
+  
+  // allow Elysia origin
   databaseHooks:{
     user:{
       create:{
@@ -40,3 +44,4 @@ export const auth = betterAuth({
 
   
 });
+

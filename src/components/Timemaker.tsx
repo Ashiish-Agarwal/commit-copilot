@@ -4,6 +4,7 @@ import React from 'react'
 import { Loader2, GitCommit, Calendar, Zap, CheckCircle2 } from 'lucide-react'
 import { backendUrl } from '~/lib/api'
 import { useRouter } from 'next/navigation'
+import axios from 'axios'
 
 
 const Timemaker = ({productId}: {productId: string}) => {
@@ -22,16 +23,20 @@ const Timemaker = ({productId}: {productId: string}) => {
     setSuccess(false)
 
     try {
-      const res = await fetch(`${backendUrl}/setschedule`, {
-        method: 'POST',
-        credentials: 'include',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ commitsPerDay, schedule, productId }),
+      const res = await axios.post(`${backendUrl}/setschedule`, {
+        commitsPerDay,
+        schedule,
+        productId,
       })
-      if (res.ok) {
+      
+      
+     
+      if (res.status === 200) {
         setSuccess(true)
         router.push(`/dashboard/cron/${productId}/inbox`)
       }
+    } catch (error) {
+      console.error(error)
     } finally {
       setLoading(false)
     }

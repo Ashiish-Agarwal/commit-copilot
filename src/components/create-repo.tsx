@@ -5,6 +5,7 @@ import { Loader2, GitFork, CheckCircle2, AlertCircle, Terminal } from 'lucide-re
 import { backendUrl } from '~/lib/api'
 import { useRouter } from 'next/navigation'
 import { cookies } from 'next/headers'
+import axios from 'axios'
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
 type CreateRepoResponse = {
@@ -42,21 +43,16 @@ const CreateRepo = () => {
 
 
 
-const res = await fetch(`${backendUrl}/createrepo`, {
-  method: "POST",
-  credentials: "include",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
+const res = await axios.post(`${backendUrl}/createrepo`, {
     name: repoName,
     description: repoDescription,
-  }),
-});
+  },{
+    withCredentials: true,
+  })
 
-      const data = await res.json() as CreateRepoResponse
+      const data = res.data as CreateRepoResponse
 
-      if (res.ok && data.success) {
+      if (res.status === 200 && data.success) {
         pushLog("Repository created successfully ✓")
         pushLog("Creating initial commit...")
         await new Promise(r => setTimeout(r, 400))
@@ -76,11 +72,19 @@ const res = await fetch(`${backendUrl}/createrepo`, {
         setStatus('error')
         setMessage(data.error ?? "Something went wrong")
       }
-    } catch (err) {
+    } catch (error) {
+
+     
+    
+  
+
+
+
       pushLog("Network error — could not reach server")
       setStatus('error')
       setMessage("Network error")
-      console.error(err)
+      console.error(error)
+      
 
     } finally {
       setLoading(false)

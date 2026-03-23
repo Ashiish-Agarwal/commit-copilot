@@ -24,7 +24,7 @@ export const auth = betterAuth({
   }, 
    secret: process.env.BETTER_AUTH_SECRET!, // same secret in BOTH .env files ⚠️
   baseURL: process.env.BETTER_AUTH_URL!,   // Next.js URL e.g. http://localhost:3000
-  trustedOrigins:  [backendUrl!],
+  trustedOrigins: [backendUrl!],
   
   
   // allow Elysia origin

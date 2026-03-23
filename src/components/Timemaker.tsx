@@ -27,7 +27,11 @@ const Timemaker = ({productId}: {productId: string}) => {
         commitsPerDay,
         schedule,
         productId,
-      })
+      },
+      // {
+      //   withCredentials: true,
+      // }
+    )
       
       
      

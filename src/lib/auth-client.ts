@@ -1,5 +1,9 @@
 import { createAuthClient } from "better-auth/client"
-const authClient =  createAuthClient()
+import { backendUrl } from "./api"
+
+const authClient = createAuthClient({
+    baseURL: backendUrl, // This should point to your backend
+})
 
 export const signInWithGitHub = async () => {
     const data = await authClient.signIn.social({

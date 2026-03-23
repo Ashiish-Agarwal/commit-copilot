@@ -53,6 +53,10 @@ const res = await axios.post(`${backendUrl}/createrepo`, {
       const data = res.data as CreateRepoResponse
 
       if (res.status === 200 && data.success) {
+
+
+
+        
         pushLog("Repository created successfully ✓")
         pushLog("Creating initial commit...")
         await new Promise(r => setTimeout(r, 400))
@@ -65,6 +69,7 @@ const res = await axios.post(`${backendUrl}/createrepo`, {
         
 
 
+
       
 
       } else {
@@ -73,6 +78,24 @@ const res = await axios.post(`${backendUrl}/createrepo`, {
         setMessage(data.error ?? "Something went wrong")
       }
     } catch (error) {
+
+       if (axios.isAxiosError(error)) {
+          if (error.code === 'ERR_NETWORK' || error.message === 'Network Error') {
+            // This is likely your CORS issue
+            console.log('Network error — possible CORS or server unreachable')
+          } else if (error.response) {
+            // Server responded with a non-2xx status
+            console.log(`Server error: ${error.response.status} — ${error.response.data?.message || 'Unknown'}`)
+          } else if (error.request) {
+            // Request was made but no response received
+            console.log('No response from server — check your network')
+          } else {
+            console.log('Unexpected error occurred')
+          }
+        } else {
+          console.log('Something went wrong')
+        }
+        console.error(error) 
 
      
     

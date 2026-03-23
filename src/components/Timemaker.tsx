@@ -40,22 +40,22 @@ const Timemaker = ({productId}: {productId: string}) => {
         router.push(`/dashboard/cron/${productId}/inbox`)
       }
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-    if (error.code === 'ERR_NETWORK' || error.message === 'Network Error') {
-      // This is likely your CORS issue
-      console.log('Network error — possible CORS or server unreachable')
-    } else if (error.response) {
-      // Server responded with a non-2xx status
-      console.log(`Server error: ${error.response.status} — ${error.response.data?.message || 'Unknown'}`)
-    } else if (error.request) {
-      // Request was made but no response received
-      console.log('No response from server — check your network')
-    } else {
-      console.log('Unexpected error occurred')
-    }
-  } else {
-    console.log('Something went wrong')
-  }
+  //     if (axios.isAxiosError(error)) {
+  //   if (error.code === 'ERR_NETWORK' || error.message === 'Network Error') {
+  //     // This is likely your CORS issue
+  //     console.log('Network error — possible CORS or server unreachable')
+  //   } else if (error.response) {
+  //     // Server responded with a non-2xx status
+  //     console.log(`Server error: ${error.response.status} — ${error.response.data?.message || 'Unknown'}`)
+  //   } else if (error.request) {
+  //     // Request was made but no response received
+  //     console.log('No response from server — check your network')
+  //   } else {
+  //     console.log('Unexpected error occurred')
+  //   }
+  // } else {
+  //   console.log('Something went wrong')
+  // }
   console.error(error) 
     } finally {
       setLoading(false)

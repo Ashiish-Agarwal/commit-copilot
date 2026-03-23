@@ -4,6 +4,7 @@ import React from 'react'
 import { Loader2, GitFork, CheckCircle2, AlertCircle, Terminal } from 'lucide-react'
 import { backendUrl } from '~/lib/api'
 import { useRouter } from 'next/navigation'
+import { cookies } from 'next/headers'
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
 type CreateRepoResponse = {
@@ -38,12 +39,20 @@ const CreateRepo = () => {
     await new Promise(r => setTimeout(r, 800))
 
     try {
-      const res = await fetch(`${backendUrl}/createrepo`, {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: repoName, description: repoDescription  }),
-      })
+
+
+
+const res = await fetch(`${backendUrl}/createrepo`, {
+  method: "POST",
+  credentials: "include",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    name: repoName,
+    description: repoDescription,
+  }),
+});
 
       const data = await res.json() as CreateRepoResponse
 

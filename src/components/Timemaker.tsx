@@ -37,7 +37,7 @@ const Timemaker = ({productId}: {productId: string}) => {
     }
   }
 
-  const isReady = commitsPerDay !== null && schedule !== null
+  const isReady = commitsPerDay !== null && schedule !== null  
 
   return (
     <div style={{
